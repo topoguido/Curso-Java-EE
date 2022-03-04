@@ -5,9 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.*;
 
 @Entity
-public class Persona implements Serializable {
-    private static final long serialVersionUID = 1L;
- 
+public class Persona {
+
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="id_persona")
@@ -65,7 +64,7 @@ public class Persona implements Serializable {
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
-    }
+    }       
 
-
-}
+    
+  }             
