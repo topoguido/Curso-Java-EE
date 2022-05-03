@@ -1,22 +1,28 @@
-
 package mx.com.gm.sga.domain;
 
 import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.*;
 
-public class Persona implements Serializable {
-    private static final long serialVersionUID = 1L;
+@Entity
+@NamedQueries({
+    @NamedQuery(name="Persona.findAll", query="SELECT p FROM Persona p ORDER BY p.idPersona")
+})
+public class Persona {
+
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name="id_persona")
     private int idPersona;
     private String nombre;
     private String apellido;
     private String email;
-    private String telefono;  
-    
+    private String telefono;
+
     public Persona(){
-        
     }
 
-    public Persona(int idPersona, String nombre, String apellido, String email, String telefono) {
-        this.idPersona = idPersona;
+    public Persona(String nombre, String apellido, String email, String telefono) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
@@ -61,11 +67,12 @@ public class Persona implements Serializable {
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
-    }
+    }       
 
     @Override
     public String toString() {
         return "Persona{" + "idPersona=" + idPersona + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email + ", telefono=" + telefono + '}';
     }
     
-}
+    
+  }             
